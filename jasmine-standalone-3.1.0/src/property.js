@@ -1,8 +1,9 @@
 'use strict';
 
 function Property() {
-  this.name = 'Flower',
-  this.note = 'Good flower',
+  this.city = 'default',
+  this.name = 'default',
+  this.note = 'default',
   this.price = 10,
-  this.status = true
+  this.status = 'available'
 };
