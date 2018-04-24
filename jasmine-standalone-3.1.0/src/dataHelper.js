@@ -1,8 +1,9 @@
 'use strict';
 
 function DataHelper() {
+  this.bookings = [];
 };
 
-DataHelper.prototype.fetchBookingsByPropertyId = function(propertyId) {
-  return [];
+DataHelper.prototype.fetchBookingsByPropertyId = function() {
+  return this.bookings = [];
 };

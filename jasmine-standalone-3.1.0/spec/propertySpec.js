@@ -28,7 +28,7 @@ describe('Property', function() {
       });
   });
 
-  it('calls dataHelper to fetch bookins when check for availability', function() {
+  it('calls dataHelper to fetch bookings when check for availability', function() {
     var property = new Property(2, dataHelper);
     property.isAvailable([]);
     expect(dataHelper.fetchBookingsByPropertyId).toHaveBeenCalled();

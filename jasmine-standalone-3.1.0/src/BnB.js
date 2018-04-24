@@ -51,8 +51,15 @@ BnB.prototype.deleteProperty = function(propertyId) {
    this.properties[index].price = newPrice;
  };
 
- BnB.prototype.bookProperty = function() {
-
+ BnB.prototype.bookProperty = function(propertyId, date) {
+   console.log(this.properties);
+   var index = this.findPropertyIndex(propertyId);
+   console.log(`this should be index; ${index}`);
+   var my_property = this.properties[index];
+   console.log(`this should be property found with index, ${my_property}`);
+   var propertyBookings = my_property.dataHelper.bookings.push(date);
+   console.log(`this should be the array of bookings ${propertyBookings}`);
+   // console.log(propertyBookings.push(date));
  };
 
  BnB.prototype.findProperty  = function(propertyId) {

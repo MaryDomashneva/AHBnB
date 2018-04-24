@@ -2,8 +2,11 @@
 
 describe('BnB', function() {
   var bnb;
+  var date1 = (new Date(2018, 10, 1)).getTime();
+  var date2;
   var prop;
   var city;
+  var index9;
   var name;
   var note;
   var price;
@@ -77,5 +80,13 @@ describe('BnB', function() {
     bnb.addProperty(expectedPropertySecond);
     bnb.updatePropertyPrice(2, 40);
     expect(expectedPropertySecond.price).toEqual(40);
+  });
+
+  it('takes a date and accepts a booking on a property', function() {
+    bnb.addProperty(expectedPropertyFirst);
+    bnb.addProperty(expectedPropertySecond);
+    bnb.bookProperty(1, date1);
+    expect(expectedPropertyFirst.dataHelper.bookings).toEqual([date1]);
+    console.log(`this should be the expected property bookings array: ${expectedPropertyFirst.dataHelper.bookings}`);
   });
 });
