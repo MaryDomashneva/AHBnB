@@ -59,4 +59,23 @@ describe('BnB', function() {
     bnb.deleteProperty(1);
     expect(bnb.properties).toEqual([expectedPropertySecond]);
   });
+
+  it('takes new name as a parameter and update name of property found by id', function() {
+    bnb.addProperty(expectedPropertyFirst);
+    bnb.updatePropertyName(1, 'SoNiceFlat');
+    expect(expectedPropertyFirst.name).toEqual('SoNiceFlat')
+  });
+
+  it('takes a new note as a paramater and updates the note on the property found by id', function() {
+    bnb.addProperty(expectedPropertyFirst);
+    bnb.updatePropertyNote(1, 'Just a pointless note!');
+    expect(expectedPropertyFirst.note).toEqual('Just a pointless note!');
+  });
+
+  it('takes a new price as a paramter and updates the price on the property found by id', function() {
+    bnb.addProperty(expectedPropertyFirst);
+    bnb.addProperty(expectedPropertySecond);
+    bnb.updatePropertyPrice(2, 40);
+    expect(expectedPropertySecond.price).toEqual(40);
+  });
 });

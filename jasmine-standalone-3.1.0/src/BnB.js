@@ -24,17 +24,6 @@ BnB.prototype.addProperty = function(property) {
     });
   };
 
- BnB.prototype.updateProperty = function() {
-
- };
-
- BnB.prototype.findProperty  = function(propertyId) {
-   return this.properties.find(function(element) {
-     return element.id === propertyId;
-     return element.id
-   });
- };
-
 BnB.prototype.findPropertyIndex = function(propertyId) {
   var index = this.properties.findIndex(function(property, index, properties) {
     return property.id === propertyId
@@ -47,6 +36,28 @@ BnB.prototype.deleteProperty = function(propertyId) {
   this.properties.splice(index, 1);
  };
 
+ BnB.prototype.updatePropertyName = function(propertyId, newName) {
+   var index = this.findPropertyIndex(propertyId);
+   this.properties[index].name = newName;
+ };
+
+ BnB.prototype.updatePropertyNote = function(propertyId, newNote) {
+   var index = this.findPropertyIndex(propertyId);
+   this.properties[index].note = newNote;
+ };
+
+ BnB.prototype.updatePropertyPrice = function(propertyId, newPrice) {
+   var index = this.findPropertyIndex(propertyId);
+   this.properties[index].price = newPrice;
+ };
+
  BnB.prototype.bookProperty = function() {
 
+ };
+
+ BnB.prototype.findProperty  = function(propertyId) {
+   return this.properties.find(function(element) {
+     return element.id === propertyId;
+     return element.id
+   });
  };
