@@ -35,9 +35,3 @@ BnB.prototype.addProperty = function(property) {
  BnB.prototype.bookProperty = function() {
 
  };
-
- BnB.prototype.isAvailable = function(property) {
-   if(property.status === 'available') {
-     return true
-   };
- };
