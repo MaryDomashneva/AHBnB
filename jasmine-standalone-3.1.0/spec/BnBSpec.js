@@ -87,6 +87,5 @@ describe('BnB', function() {
     bnb.addProperty(expectedPropertySecond);
     bnb.bookProperty(1, date1);
     expect(expectedPropertyFirst.dataHelper.bookings).toEqual([date1]);
-    console.log(`this should be the expected property bookings array: ${expectedPropertyFirst.dataHelper.bookings}`);
   });
 });
