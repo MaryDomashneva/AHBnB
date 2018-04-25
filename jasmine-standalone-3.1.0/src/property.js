@@ -1,5 +1,4 @@
 'use strict';
-const pg = require('pg');
 
 function Property(id, propertyCity, propertyName, propertyNote, propertyPrice, ownerId, dataHelper) {
   this.id = id ? id : 1;

@@ -1,15 +1,15 @@
 'use strict';
 
-const pg = require('pg');
+// const pg = require('pg');
 
 function DataHelper() {
-  var databaseName = '';
-  if (process.env.ENVIRONMENT === 'test') {
-    databaseName = 'postgres://localhost:5432/ahbnb_test';
-  } else {
-    databaseName = 'postgres://localhost:5432/ahbnb';
-  }
-  this.client = new pg.Client(databaseName);
+  // var databaseName = '';
+  // if (process.env.ENVIRONMENT === 'test') {
+  //   databaseName = 'postgres://localhost:5432/ahbnb_test';
+  // } else {
+  //   databaseName = 'postgres://localhost:5432/ahbnb';
+  // }
+  // this.client = new pg.Client(databaseName);
   this.bookings = [];
 };
 

@@ -1,21 +1,21 @@
-'use strict';
-const pg = require('pg');
-
-const productionDatabase = 'postgres://mariagetmanova@localhost:5432/ahbnb';
-// const testDatabase = 'postgres://localhost:5432/ahbnb_test';
-
-var client = new pg.Client(productionDatabase);
-client.connect(function(err){
-  if(err){
-    return console.error('could not connect to postgres',err);
-  } client.query('SELECT * FROM users', function(err,result){
-    if(err){
-      return console.error('error running query', err);
-    }
-    console.log(result);
-    client.end();
-  });
-});
+// 'use strict';
+// const pg = require('pg');
+//
+// const productionDatabase = 'postgres://mariagetmanova@localhost:5432/ahbnb';
+// // const testDatabase = 'postgres://localhost:5432/ahbnb_test';
+//
+// var client = new pg.Client(productionDatabase);
+// client.connect(function(err){
+//   if(err){
+//     return console.error('could not connect to postgres',err);
+//   } client.query('SELECT * FROM users', function(err,result){
+//     if(err){
+//       return console.error('error running query', err);
+//     }
+//     console.log(result);
+//     client.end();
+//   });
+// });
 
 
 // const databases = [productionDatabase];

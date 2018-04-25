@@ -1,13 +1,12 @@
 'use strict';
-const pg = require('pg');
 
 describe('BnB', function() {
-  if (process.env.ENVIRONMENT === 'test') {
-    databaseName = 'postgres://localhost:5432/ahbnb_test';
-  } else {
-    databaseName = 'postgres://localhost:5432/ahbnb';
-  }
-  this.client = new pg.Client(databaseName);
+  // if (process.env.ENVIRONMENT === 'test') {
+  //   databaseName = 'postgres://mariagetmanova@localhost:5432/ahbnb_test';
+  // } else {
+  //   databaseName = 'postgres://mariagetmanova@localhost:5432/ahbnb';
+  // }
+  // this.client = new pg.Client(databaseName);
 
   var bnb;
   var date1 = (new Date(2018, 10, 1)).getTime();

@@ -1,14 +1,13 @@
 'use strict';
-const pg = require('pg');
 
 function BnB() {
-  var databaseName = '';
-  if (process.env.ENVIRONMENT === 'test') {
-    databaseName = 'postgres://localhost:5432/ahbnb_test';
-  } else {
-    databaseName = 'postgres://localhost:5432/ahbnb';
-  }
-  this.client = new pg.Client(databaseName);
+  // var databaseName = '';
+  // if (process.env.ENVIRONMENT === 'test') {
+  //   databaseName = 'postgres://mariagetmanova@localhost:5432/ahbnb_test';
+  // } else {
+  //   databaseName = 'postgres://mariagetmanova@localhost:5432/ahbnb';
+  // }
+  // this.client = new pg.Client(databaseName);
 
   this.properties = []
 };
@@ -27,19 +26,19 @@ BnB.prototype.addProperty = function(property) {
    return property;
  };
 
-  BnB.prototype.listAllProperty = function(city) {
-    const query = {
-      text: `SELECT * FROM bookings WHERE city = $1;`,
-      values: [city]
-    }
-    this.client.connect();
-    this.client.query(query)
-      .then(result => {
-        this.properties = result.rows.map(function(row) {
-          return new Property(row.id, row.city, row.name, row.note, row.price)
-        })
-      })
-      .then(result => this.client.end());
+  BnB.prototype.listAllProperty = function() {
+    // const query = {
+    //   text: `SELECT * FROM bookings WHERE city = $1;`,
+    //   values: [city]
+    // }
+    // this.client.connect();
+    // this.client.query(query)
+    //   .then(result => {
+    //     this.properties = result.rows.map(function(row) {
+    //       return new Property(row.id, row.city, row.name, row.note, row.price)
+    //     })
+    //   })
+    //   .then(result => this.client.end());
 
     return this.properties.map(function(property) {
       return property.name;
