@@ -1,6 +1,14 @@
 'use strict';
+const pg = require('pg');
 
 describe('BnB', function() {
+  if (process.env.ENVIRONMENT === 'test') {
+    databaseName = 'postgres://localhost:5432/ahbnb_test';
+  } else {
+    databaseName = 'postgres://localhost:5432/ahbnb';
+  }
+  this.client = new pg.Client(databaseName);
+
   var bnb;
   var date1 = (new Date(2018, 10, 1)).getTime();
   var date2;
@@ -19,8 +27,8 @@ describe('BnB', function() {
   beforeEach(function() {
     bnb = new BnB();
     prop = new Property();
-    expectedPropertyFirst = bnb.createProperty(1, 'London', 'NiceFlat', 'Available', 50);
-    expectedPropertySecond = bnb.createProperty(2, 'London', 'BadFlat', 'Available', 30);
+    expectedPropertyFirst = bnb.createProperty(1, 'London', 'NiceFlat', 50);
+    expectedPropertySecond = bnb.createProperty(2, 'London', 'BadFlat', 30);
   });
 
   it('takes property as argument and adds it to array', function() {
@@ -83,9 +91,10 @@ describe('BnB', function() {
   });
 
   it('takes a date and accepts a booking on a property', function() {
+    var expectedBooking = new Booking(0, 1, [date1]);
     bnb.addProperty(expectedPropertyFirst);
     bnb.addProperty(expectedPropertySecond);
     bnb.bookProperty(1, date1);
-    expect(expectedPropertyFirst.dataHelper.bookings).toEqual([date1]);
+    expect(expectedPropertyFirst.dataHelper.bookings).toEqual([expectedBooking]);
   });
 });

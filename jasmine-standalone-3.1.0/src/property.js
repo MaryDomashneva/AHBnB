@@ -1,12 +1,13 @@
 'use strict';
+const pg = require('pg');
 
-function Property(id, dataHelper) {
+function Property(id, propertyCity, propertyName, propertyNote, propertyPrice, ownerId, dataHelper) {
   this.id = id ? id : 1;
-  this.city = 'default';
-  this.name = 'default';
-  this.note = 'default';
-  this.price = 10;
-  this.status = 'available';
+  this.city = propertyCity;
+  this.name = propertyName;
+  this.note = propertyNote;
+  this.price = propertyPrice;
+  this.propertyOwner = ownerId ? ownerId : 1;
   this.dataHelper = dataHelper ? dataHelper : new DataHelper();
 };
 

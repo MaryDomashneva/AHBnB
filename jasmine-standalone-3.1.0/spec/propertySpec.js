@@ -2,6 +2,14 @@
 
 describe('Property', function() {
   var dataHelper;
+  const pg = require('pg');
+  describe('BnB', function() {
+    if (process.env.ENVIRONMENT === 'test') {
+      databaseName = 'postgres://localhost:5432/ahbnb_test';
+    } else {
+      databaseName = 'postgres://localhost:5432/ahbnb';
+    }
+    this.client = new pg.Client(databaseName);
 
   beforeEach(function() {
     var date1 = (new Date(2018, 10, 1)).getTime();
