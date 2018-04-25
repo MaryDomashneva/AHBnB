@@ -12,6 +12,7 @@ describe('BnB', function() {
   var date1 = (new Date(2018, 10, 1)).getTime();
   var date2;
   var prop;
+  var user;
   var city;
   var index9;
   var name;
@@ -19,20 +20,34 @@ describe('BnB', function() {
   var price;
   var newProp;
   var expectedPropertyFirst;
-  var expectedPropertySecond
+  var expectedPropertySecond;
+  var expectedUserFirst;
+  var expectedUserSecond;
   var propertyArray;
   var propertyId;
+  var UserId;
+  var UserName;
+  var email;
+  var newUser;
 
   beforeEach(function() {
     bnb = new BnB();
     prop = new Property();
+    user = new User();
+    expectedUserFirst = bnb.createUser(1, 'Mary', 'marytest@gmail.com');
+    expectedUserSecond = bnb.createUser(2, 'Andrew', 'andrewtest@gmail.com');
     expectedPropertyFirst = bnb.createProperty(1, 'London', 'NiceFlat', 50);
     expectedPropertySecond = bnb.createProperty(2, 'London', 'BadFlat', 30);
   });
 
-  it('takes property as argument and adds it to array', function() {
+  it('takes property as argument and adds it to properties array', function() {
     bnb.addProperty(prop);
     expect(bnb.properties).toEqual([prop]);
+  });
+
+  it('takes user as argument and adds it to users array', function() {
+    bnb.addUser(user);
+    expect(bnb.users).toEqual([user]);
   });
 
   it('creates a new property', function() {
@@ -45,6 +60,15 @@ describe('BnB', function() {
     bnb.addProperty(newProp);
     expect(bnb.properties).toEqual([newProp]);
   });
+
+  it('creates a new user', function() {
+    UserId = 1;
+    UserName = 'marwa';
+    email = 'marwa@gmail.com';
+    newUser = bnb.createUser(UserId, UserName, email);
+    bnb.addUser(newUser);
+    expect(bnb.users).toEqual([newUser]);
+  })
 
   it('lists all properties', function() {
     bnb.addProperty(expectedPropertyFirst);
@@ -61,6 +85,12 @@ describe('BnB', function() {
     bnb.addProperty(expectedPropertyFirst);
     bnb.addProperty(expectedPropertySecond);
     expect(bnb.findPropertyIndex(2)).toEqual(1);
+  });
+
+  it('returns an id of the user in the array', function() {
+    bnb.addUser(expectedUserFirst);
+    bnb.addUser(expectedUserSecond);
+    expect(bnb.findUserIndex(2)).toEqual(1);
   });
 
   it('deletes a property from the list', function() {
@@ -87,6 +117,18 @@ describe('BnB', function() {
     bnb.addProperty(expectedPropertySecond);
     bnb.updatePropertyPrice(2, 40);
     expect(expectedPropertySecond.price).toEqual(40);
+  });
+
+  it('updates the username by id', function() {
+    bnb.addUser(expectedUserFirst);
+    bnb.updateUserName(1, 'Marwa');
+    expect(expectedUserFirst.UserName).toEqual('Marwa')
+  });
+
+  it('updates the user email by id', function() {
+    bnb.addUser(expectedUserFirst);
+    bnb.updateUserEmail(1, 'marwatest@gmail.com');
+    expect(expectedUserFirst.email).toEqual('marwatest@gmail.com')
   });
 
   it('takes a date and accepts a booking on a property', function() {

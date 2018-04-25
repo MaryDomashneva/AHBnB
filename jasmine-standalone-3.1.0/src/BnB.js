@@ -17,6 +17,10 @@ BnB.prototype.addProperty = function(property) {
   this.properties.push(property);
 };
 
+BnB.prototype.addUser = function(user) {
+  this.users.push(user);
+};
+
  BnB.prototype.createProperty = function(propertyId, propertyCity, propertyName, propertyNote, propertyPrice) {
    var property = new Property();
    property.id = propertyId;
@@ -28,35 +32,16 @@ BnB.prototype.addProperty = function(property) {
  };
 
  BnB.prototype.createUser = function(UserId, UserName, email) {
-   var User = new User();
+   var user = new User();
    user.userId = UserId;
    user.UserName = UserName;
    user.email = email;
-   return User;
+   return user;
  };
 
   BnB.prototype.listAllProperty = function() {
-    // const query = {
-    //   text: `SELECT * FROM bookings WHERE city = $1;`,
-    //   values: [city]
-    // }
-    // this.client.connect();
-    // this.client.query(query)
-    //   .then(result => {
-    //     this.properties = result.rows.map(function(row) {
-    //       return new Property(row.id, row.city, row.name, row.note, row.price)
-    //     })
-    //   })
-    //   .then(result => this.client.end());
-
     return this.properties.map(function(property) {
       return property.name;
-    });
-  };
-
-  BnB.prototype.allUsers = function() {
-    return this.users.map(function(user) {
-      return user.UserName;
     });
   };
 
@@ -69,7 +54,7 @@ BnB.prototype.findPropertyIndex = function(propertyId) {
 
  BnB.prototype.findUserIndex = function(userId) {
    var index = this.users.findIndex(function(user, index, users) {
-     return user.id === userId
+     return user.userId === userId
     });
     return index
   };

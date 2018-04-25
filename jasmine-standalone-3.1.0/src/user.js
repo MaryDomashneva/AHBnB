@@ -3,8 +3,8 @@
 function User(UserId, UserName, email ) {
   this.userId = UserId,
   this.UserName = UserName,
-  thi.email = email
-}
+  this.email = email
+};
 
 
 
