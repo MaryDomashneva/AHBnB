@@ -10,6 +10,7 @@ function BnB() {
   // this.client = new pg.Client(databaseName);
 
   this.properties = []
+  this.users = []
 };
 
 BnB.prototype.addProperty = function(property) {
@@ -24,6 +25,14 @@ BnB.prototype.addProperty = function(property) {
    property.note = propertyNote;
    property.price = propertyPrice;
    return property;
+ };
+
+ BnB.prototype.createUser = function(UserId, UserName, email) {
+   var User = new User();
+   user.userId = UserId;
+   user.UserName = UserName;
+   user.email = email;
+   return User;
  };
 
   BnB.prototype.listAllProperty = function() {
@@ -45,12 +54,25 @@ BnB.prototype.addProperty = function(property) {
     });
   };
 
+  BnB.prototype.allUsers = function() {
+    return this.users.map(function(user) {
+      return user.UserName;
+    });
+  };
+
 BnB.prototype.findPropertyIndex = function(propertyId) {
   var index = this.properties.findIndex(function(property, index, properties) {
     return property.id === propertyId
    });
    return index
  };
+
+ BnB.prototype.findUserIndex = function(userId) {
+   var index = this.users.findIndex(function(user, index, users) {
+     return user.id === userId
+    });
+    return index
+  };
 
 BnB.prototype.deleteProperty = function(propertyId) {
   var index = this.findPropertyIndex(propertyId)
@@ -70,6 +92,16 @@ BnB.prototype.deleteProperty = function(propertyId) {
  BnB.prototype.updatePropertyPrice = function(propertyId, newPrice) {
    var index = this.findPropertyIndex(propertyId);
    this.properties[index].price = newPrice;
+ };
+
+ BnB.prototype.updateUserName = function(userId, newName) {
+   var index = this.findUserIndex(userId);
+   this.users[index].UserName = newName;
+ };
+
+ BnB.prototype.updateUserEmail = function(userId, newEmail) {
+   var index = this.findUserIndex(userId);
+   this.users[index].email = newEmail;
  };
 
  BnB.prototype.bookProperty = function(propertyId, date) {

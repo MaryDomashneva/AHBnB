@@ -36,10 +36,10 @@ describe('Property', function() {
   });
 
   it('calls dataHelper to fetch bookings when check for availability', function() {
-    var property = new Property(2, dataHelper);
+    var property = new Property(2, 'Moscow', 'Super Flat', '', 200, 1,  dataHelper);
     property.isAvailable([]);
-    // expect(dataHelper.fetchBookingsByPropertyId).toHaveBeenCalled();
-    // expect(dataHelper.fetchBookingsByPropertyId.calls.argsFor(0)).toEqual([2]);
+    expect(dataHelper.fetchBookingsByPropertyId).toHaveBeenCalled();
+    expect(dataHelper.fetchBookingsByPropertyId.calls.argsFor(0)).toEqual([2]);
   });
 
   it('returns true if property is available', function() {
@@ -53,12 +53,12 @@ describe('Property', function() {
   });
 
   it('returns false if property is not available', function() {
-    var property = new Property(1, dataHelper);
+    var property = new Property(1, 'Moscow', 'Super Flat', '', 200, 1, dataHelper);
     var bookingDates = [
       (new Date(2018, 11, 4)).getTime(),
       (new Date(2018, 11, 5)).getTime(),
       (new Date(2018, 11, 6)).getTime()
     ];
-    // expect(property.isAvailable(bookingDates)).toEqual(false);
+    expect(property.isAvailable(bookingDates)).toEqual(false);
   });
 });
