@@ -45,30 +45,30 @@ Approach:
 
 As a team, we decided to use JavaScript as the main Language for our project.
 
-##Day first:
+## Day first:
 We hspend as a team discussing the model of the project.
 We agreed to have following classes:
 1. User - has an id, name, and email;
-2. Property - has id, city, name, description, price, and owner(user);
-3. Booking - belongs to Property and holds booking dates for the property;
-4. BnB - class responsible for main methods and operations.
+1. Property - has id, city, name, description, price, and owner(user);
+1. Booking - belongs to Property and holds booking dates for the property;
+1. BnB - class responsible for main methods and operations.
 
-##Day second:
+## Day second:
 Marwa and Andrew spend time creating a draft view of our site.
 Sam and Mary defined main classes and created methods and tests.
 On this stage, we did not introduce Data Base and did not link our views to backend code.
 
-##Day third:
+## Day third:
 We realized that in order to move further we need to link our code to the database.
 We decided to use Postgres SQL and connected it to JavaScript.
 It was a totally new concept for all of us and we have spent all day, trying to understand how to connect the database to the existing code.
 In the end, we figured out that our approach was partially wrong and we need to re-start our project.
 
-##Day four:
+## Day four:
 We initialized a new project with Express that helps to link together JS code, SQL, and HTTP.
 We used our JS code as a base for model part n a new project and spend a day to link some of the methods to pages and Database.
 
-##Day five:
+## Day five:
 We have to spend a lot of time trying to understand the flow, so we were not able to finish our project in time.
 But we have learned a lot as a developer and we have learned to work as a team.
 For all of us teamwork was the most important part of the project.
@@ -82,7 +82,7 @@ Technologies used
 
 In order to run tests, clone project and from root open file SpecRunner.html
 
-Jasmin 3.1.0
-Json
-JavaScript
-Fonts for interface
+* Jasmin 3.1.0
+* Json
+* JavaScript
+* Fonts for interface
